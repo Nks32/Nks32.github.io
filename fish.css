@@ -22,6 +22,7 @@ header::after {
 }
 
 .logo {
+    display: flex;
     text-transform: uppercase;
     color: #2a9d8f;
     float: left;
@@ -30,7 +31,7 @@ header::after {
 
 .animation-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -45,6 +46,7 @@ header::after {
     border: 8px solid #3E9773;
     transition: all 500ms ease;
     padding: 5% 0 5% 0;
+    margin: 15%;
 }
 
 .center:hover{
@@ -63,7 +65,7 @@ header::after {
     padding: 20px;
 }
 
-#anim-button { background: transparent; border: none !important; font-size: 0; outline: none; }
+#anim-button-f, #anim-button-b { background: transparent; border: none !important; font-size: 0; outline: none; }
 
 .background {
     filter: blur(2);
@@ -73,4 +75,13 @@ header::after {
     left: 0;
     right: 0;
     z-index: -1;
-  }
+}
+
+.beer {
+    transition: 0.6s ease;
+    -webkit-transition: -webkit-transform 0.6s ease;
+    font-size: 15rem;
+    color: #3E9773;
+    padding: 20px 20px 20px 20px;
+    margin: 0 18px 0 18px;
+}

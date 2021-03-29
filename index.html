@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="fish.css">
         <script src="particles.min.js"></script>
         <script src="https://kit.fontawesome.com/47e6a6a009.js" crossorigin="anonymous"></script>
+        <script src="logos.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>The mysterious fish</title>
     </head>
     <body>
@@ -18,53 +20,12 @@
         <main>
             <div class="animation-container">
                 <div class="center">
-                    <button id="anim-button" type="button"><i id="fish"class="fas fa-fish fish"></i></button>
+                    <button id="anim-button-f" type="button"><i class="fas fa-fish fish"></i></button>
+                </div>
+                <div class="center">
+                    <button id="anim-button-b" type="button"><i class="fas fa-beer beer"></i></i></button>
                 </div>
             </div>
         </main>
     </body>
-    <script>
-        window.onload = function() {
-            Particles.init({
-                selector: ".background",
-                color: '#DA0463',
-                connectParticles: true,
-                maxParticles: "250",
-            });
-        };
-
-        document.getElementById("anim-button").addEventListener("click", turn90Degrees);
-        //document.getElementById("anim-button").addEventListener("dblclick", disappear);
-        var fish = document.querySelector(".fish");
-        var bg = document.querySelector(".center")
-        var degree = 0;
-        var degree_ = 90;
-        //var finishedTurning = new Boolean("false")
-        function turn90Degrees() {
-            degree += 90;
-            if(degree==degree_){
-                fish.style.setProperty("-webkit-transition", "-webkit-transform 1s ease");
-                fish.style.webkitTransform = "rotate(" + degree + "deg)";
-                degree_ += 90;
-            } else if(degree==degree_){
-                fish.style.webkitTransform = "rotate(" + degree + "deg)";
-                degree_ += 90;
-            } else if(degree==degree_){
-                fish.style.webkitTransform = "rotate(" + degree + "deg)";
-                degree_ += 90;
-            } else if(degree==degree_){
-                fish.style.webkitTransform = "rotate(" + degree + "deg)";
-                degree_ += 90;
-                //finishedTurning = true;
-            }
-            console.log(degree);
-        }
-        //function disappear() {
-        //    if(finishedTurning){
-        //        bg.classList.add("disappearing");
-        //    } else {
-        //        bg.classList.remove("disappearing");
-        //   }
-        //}
-    </script>
 </html>
