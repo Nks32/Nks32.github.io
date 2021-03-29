@@ -1,5 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
 
+@media only screen and (max-width: 950px) {
+    div.animation-container {
+        flex-direction: column;
+    }
+    /*button#anim-button-b button#anim-button-f {
+        width: 25%;
+        height: 9%;
+    }*/
+}
+
+/*Animations for the fade-in and fade-out process*/
+@-webkit-keyframes fade-out {
+    100% {-webkit-transform: scale(0.4); opacity: 0;}
+}
+
+@-webkit-keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+    
+.fade-out {
+    -webkit-animation: fade-out .5s ease-in;
+    -webkit-animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+.fade-in {
+    -webkit-animation: fade-in .5s ease-in;
+    -webkit-animation-fill-mode: forwards;
+    opacity: 0;
+}
+
 body {
     margin: 0;
     background: #222;
@@ -35,7 +67,7 @@ header::after {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 90vh;
+    min-height: 35vh;
     width: 25%;
     margin: auto;
 }
@@ -53,10 +85,6 @@ header::after {
     border-radius: 2rem;
 }
 
-/*.disappearing {
-    background-color: black;
-}*/
-
 .fish {
     transition: 0.6s ease;
     -webkit-transition: -webkit-transform 0.6s ease;
@@ -65,7 +93,7 @@ header::after {
     padding: 20px;
 }
 
-#anim-button-f, #anim-button-b { background: transparent; border: none !important; font-size: 0; outline: none; }
+#anim-button-f, #anim-button-b, #reset-button { background: transparent; border: none !important; font-size: 0; height: 100%; outline: none; }
 
 .background {
     filter: blur(2);
@@ -84,4 +112,19 @@ header::after {
     color: #3E9773;
     padding: 20px 20px 20px 20px;
     margin: 0 18px 0 18px;
+}
+
+.reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 25%;
+    margin: auto;
+}
+
+.reset {
+    font-size: 6rem;
+    color: #3E9773;
+    margin: 0 15px 0 15px;
 }
