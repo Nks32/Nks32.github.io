@@ -61,7 +61,7 @@ window.onload = function() {
     function Appear(bg_select, status_dis){
         //Adds the fade-in class, remove the fade-out class
         status_dis = false;
-        console.log("test");
+        //console.log("test");
         bg_select.classList.remove("fade-out");
         bg_select.classList.add("fade-in");
     }
