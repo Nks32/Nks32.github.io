@@ -48,7 +48,7 @@ window.onload = function() {
         //Adds the fade-out class to the icon, remove the fade-in class
         bg_selector.classList.remove("fade-in");
         var name, arr;
-        name = " fade-out";
+        name = "fade-out";
         arr = bg_selector.className.split(" ");
         if (arr.indexOf(name) == -1) {
             bg_selector.className += " " + name;
