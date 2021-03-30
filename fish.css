@@ -4,10 +4,12 @@
     div.animation-container {
         flex-direction: column;
     }
-    /*button#anim-button-b button#anim-button-f {
-        width: 25%;
-        height: 9%;
-    }*/
+    i.beer {
+        font-size: 12rem;
+    }
+    i.fish {
+        font-size: 11.5rem;
+    }
 }
 
 /*Animations for the fade-in and fade-out process*/
