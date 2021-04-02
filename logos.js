@@ -24,15 +24,23 @@ window.onload = function() {
       options: {
         maxParticles: 0
       }
-    }
-  ]
-});
-//Variables for the specific degrees of each icon
+    }]});
+
+    //Variables to select each icons and the background of each icon
+    const fish = document.querySelector(".fish");
+    const beer = document.querySelector(".beer");
+    const fish_bg = document.querySelector(".f");
+    const beer_bg = document.querySelector(".b");
+    const cross_obj = document.querySelector(".cross");
+
+    //Variables for the specific degrees of each icon
     var fdegree = 90;
     var fdegree_ = 90;
     var bdegree = 90;
     var bdegree_ = 90;
     var f_dis = b_dis = false;
+    var lock_beer = lockBeer(cross_obj);
+
     //Function, which turns the object by 90 degrees
     function turn90Degrees(turning_obj, degree, degree_) {
         if(degree==degree_){
@@ -65,13 +73,32 @@ window.onload = function() {
         bg_select.classList.remove("fade-out");
         bg_select.classList.add("fade-in");
     }
-    //Variables to select each icons and the background of each icon
-    const fish = document.querySelector(".fish");
-    const beer = document.querySelector(".beer");
-    const fish_bg = document.querySelector(".f");
-    const beer_bg = document.querySelector(".b");
+    //Gets the Timezone of the User and decides, if he/she can turn the beer icon
+    function lockBeer(lock_obj) {
+        timezone_name = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        let options = {
+            timeZone: timezone_name,
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+        },
+        formatter = new Intl.DateTimeFormat([], options);
+        local_time = formatter.format(new Date()).split(",");
+        hour = 12;//parseInt(local_time[1].split(":")[0]);
+        //console.log(hour);
+        if (hour >= 16 || hour <=5){
+            lock_obj.classList.add("away");
+            return false;
+        } else{
+            lock_obj.classList.remove("away");
+            return true;
+        }
+    }
 
-    //Adds an Button Listener, with which the icons appear again
+    //Adds a button listener, with which the icons appear again
     document.getElementById("reset-button").addEventListener("click", function(){
         if (f_dis){
             f_dis = Appear(fish_bg, f_dis);
@@ -80,18 +107,31 @@ window.onload = function() {
             b_dis = Appear(beer_bg, b_dis);
         }
     });
-    //Adds an Button Listener, with which the icons can disappear
+    // Adds a button listener, with which the lockbeer function can be overwriten
+    document.getElementById("overwrite_lockbeer").addEventListener("click", function() {
+        if(b_dis && !lock_beer){
+            b_dis = Appear(beer_bg, b_dis);
+        }
+        if (lock_beer){
+            lock_beer = false;
+            cross_obj.classList.add("away");
+        } else {
+            lock_beer = true;
+            cross_obj.classList.remove("away");
+        }
+    })
+    //Adds a button listener, with which the icons can disappear
     document.getElementById("anim-button-f").addEventListener("dblclick", function(){
         if (fdegree>=360 && !f_dis){
             f_dis = Disappear(fish_bg, f_dis);
         }
     })
     document.getElementById("anim-button-b").addEventListener("dblclick", function(){
-        if (bdegree>=360 && !b_dis){
+        if (bdegree>=360 && !b_dis && !lock_beer){
             b_dis = Disappear(beer_bg, b_dis);
         }
     })
-    //Adds an Button Listener, with which the icons can turn
+    //Adds an button listener, with which the icons can turn
     document.getElementById("anim-button-f").addEventListener("click", function(){
         if (!f_dis){
             fdegree, fdegree_ = turn90Degrees(fish, fdegree, fdegree_);
@@ -99,7 +139,7 @@ window.onload = function() {
         }
     });
     document.getElementById("anim-button-b").addEventListener("click", function(){
-        if (!b_dis){
+        if (!b_dis && !lock_beer){
             bdegree, bdegree_ = turn90Degrees(beer, bdegree, bdegree_);
             bdegree += 90;
         }

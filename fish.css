@@ -4,7 +4,7 @@
     div.animation-container {
         flex-direction: column;
     }
-    i.beer {
+    i.beer, i.cross {
         font-size: 12rem;
     }
     i.fish {
@@ -26,6 +26,10 @@
     -webkit-animation: fade-out .5s ease-in;
     -webkit-animation-fill-mode: forwards;
     opacity: 1;
+}
+
+.away {
+    display: none !important;
 }
 
 .fade-in {
@@ -95,7 +99,10 @@ header::after {
     padding: 20px;
 }
 
-#anim-button-f, #anim-button-b, #reset-button { background: transparent; border: none !important; font-size: 0; height: 100%; outline: none; }
+#anim-button-f, #anim-button-b, #reset-button, #overwrite_lockbeer { background: transparent; border: none !important; font-size: 0; height: 100%; outline: none; position: relative; }
+#overwrite_lockbeer {
+    margin: 0 5px 0 5px;
+}
 
 .background {
     filter: blur(2);
@@ -116,7 +123,7 @@ header::after {
     margin: 0 18px 0 18px;
 }
 
-.reset-container {
+.button-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,8 +132,17 @@ header::after {
     margin: auto;
 }
 
-.reset {
+.reset, .overwrite_lockbeer{
     font-size: 6rem;
     color: #3E9773;
     margin: 0 15px 0 15px;
+}
+
+.cross {
+    position: absolute;
+    font-size: 15rem;
+    color: black;
+    top: 7%;
+    left: 22.5%;
+    z-index: 2;
 }
