@@ -87,7 +87,7 @@ window.onload = function() {
         },
         formatter = new Intl.DateTimeFormat([], options);
         local_time = formatter.format(new Date()).split(",");
-        hour = 12;//parseInt(local_time[1].split(":")[0]);
+        hour = parseInt(local_time[1].split(":")[0]);
         //console.log(hour);
         if (hour >= 16 || hour <=5){
             lock_obj.classList.add("away");
