@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://kit.fontawesome.com/47e6a6a009.js" crossorigin="anonymous"></script>
+        <title>Vorlagen für verschiedene Elemente</title>
+    </head>
+    <body>
+        <!--Überschrift mit wrapper Container herum, damit man die Überschrift zentrieren kann-->
+        <header>
+            <div class="wrapper">
+                <h1 class="überschrift">Text zum einfügen!</h1>
+            </div>
+        </header>
+        <main>
+            <!--Gibt die Navbar als Liste mit den einzelnen Elementen (mit Icons) da-->
+            <nav>
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i></a></li>
+                    <li><a><i class="far fa-newspaper"></i></a></li>
+                    <li><a><i class="far fa-address-book"></i></a></li>
+                    <li><a><i class="far fa-address-card"></i></a></li>
+                </ul>
+            </nav>
+            <br>
+        </main>
+    </body>
+    <style>
+        /*Importiert eine spezielle Font*/
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
+        /*Definiert Einstellungen wie Farbe und Einstellungen von der Font*/
+        body {
+            background-color: grey;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 800;
+        }
+        /*Definiert die Hintergrundfarbe (Einfach Farbe einfügen bei background-color)*/
+        header {
+            background-color: rgba(0, 0, 255, 0.75);
+        }
+        /*Macht ein Container um die Überschrift, um sie zu zentrieren*/
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /*Definiert Grundeinstellungen der Navigationsbar*/
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        /*Gibt die Größe der einzelnen Elementen an und das sie sich links halten*/
+        li {
+            width: 25%;
+            float: left;
+        }
+        /*Gibt einzelne Einstellungen der Icons und der Verlinkungen (a Elemente) an*/
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 25px;
+        }
+        /*Verändert die Farbe der a Elemente, wenn man mit dem Mauszeiger drübergeht*/
+        li a:hover {
+            background-color: #111;
+        }
+    </style>
+</html>
